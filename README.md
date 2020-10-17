@@ -7,6 +7,21 @@ Trong đó đại lượng alpha coi như độ liều lĩnh của pacman, alpha
 
 2. MinmaxAgent:
 
-Hàm get_value: Trả về action và score cho action đó
-Hàm max_value: Xác định hành động của pacman sao cho đạt được điểm cao nhất
-Hàm min_value: Xác định hành động của các con ma sao cho đạt được điểm thấp nhất
+Hàm get_value: Trả về action và score cho action đó, gọi hàm max_value nếu agent là pacman, hàm min_value nếu agent là ghost
+
+Đối với pacman:
+Hàm max_value: Xác định hành động của pacman sao cho đạt được điểm cao nhất:
+  Đầu tiên cho max_value = -inf
+  Ở mỗi node, so sánh max value với các successor, thay thế nếu successor_value > max_value và prun nếu gặp successor_value bé hơn, sau đó trả về action
+
+Đối với ghost:
+Hàm min_value: Xác định hành động của các con ma sao cho pacman đạt được điểm thấp nhất:
+  Đầu tiên cho min_value = inf
+  Ở mỗi node, so sánh min_value với các successor, thay thế nếu successor_value <min_value và prun nếu gặp successor_value lớn hơn, sau đó trả về action 
+
+
+3. AlphaBetaAgent:
+Alpha: Giá trị lớn nhất có thể đạt được của maximizer (Pacman)
+Beta: Giá trị bé nhất có thể đạt được của minimizer (Ghost)
+Khởi tạo Alpha = -ìnf và Beta = inf
+Ở mỗi node, so sánh  
