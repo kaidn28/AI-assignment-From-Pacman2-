@@ -21,7 +21,7 @@ Hàm min_value: Xác định hành động của các con ma sao cho pacman đ�
 
 
 3. AlphaBetaAgent:
+Tương tự minimaxAgent, nhưng có thêm alpha và beta.
 Alpha: Giá trị lớn nhất có thể đạt được của maximizer (Pacman)
 Beta: Giá trị bé nhất có thể đạt được của minimizer (Ghost)
-Khởi tạo Alpha = -ìnf và Beta = inf
-Ở mỗi node, so sánh  
+Tại mỗi hàm maxValue, so sánh value tìm được với beta. Cắt nhánh nếu value > beta, nếu không thì gán lại alpha = max(alpha, value) Tại mỗi hàm minValue, so sánh value tìm được với alpha. Cắt nhanh nếu value < alpha, nếu không thì gán lại beta = min(beta, value)
